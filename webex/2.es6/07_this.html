@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person(name, age) {
+        console.log(`Person() : ${this}`);
+        this.fullName = name;
+        this.age = age;
+        this.print = printInfo;
+        this.increaseAge = function () {
+          this.age++;
+        };
+      }
+
+      let p1 = new Person('김태희', 20);
+      let p2 = new Person('김재환', 27);
+
+      p1.increaseAge();
+      console.log(p1.fullName, p2.fullName);
+
+      p1.print();
+      p2.print();
+
+      function printInfo() {
+        console.log(this.fullName, this.age);
+      }
+
+      printInfo();
+      Person('홍길동', 10);
+
+      function sum(a, b) {
+        console.log(`${this.msg} : ${a + b}`);
+      }
+
+      sum(10, 20);
+      sum.call({ msg: 'Result' }, 10, 20);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 익명함수 표현
+      // function(param) {statement}
+      // ES6 지원 : arrow function
+      // (params) => {statement}
+      // 매개변수가 1개이면 매개변수 괄호 생략 : param => {statement}
+      // 실행문장 1개이면 함수몸체 괄호 생략 : (params) => statement
+      // 실행문장 1개리고 리턴문이라면 함수몸체 괄호 생략, return 키워드 생략 : (params) => statement
+
+      const hello = function () {
+        console.log('Hello SSAFY!!!');
+      };
+      const hello2 = () => console.log('Hello SSAFY7!!!');
+
+      hello();
+      hello2();
+
+      const max = (a, b) => (a > b ? a : b);
+      console.log(max(10, 20));
+
+      console.log('================');
+      let arr = [10, 34, 67, 20, 99];
+      arr.forEach(function (item) {
+        console.log(this); // window
+        console.log(item);
+      });
+      arr.forEach((item) => console.log(item));
+      console.log((arr2 = arr.filter((item) => item % 2 == 0)));
+      console.log((arr2 = arr.filter((item, index) => index % 2 == 0)));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">클릭</button>
+
+    <script>
+      let btn = document.getElementById('btn');
+
+      btn.addEventListener('click', function () {
+        console.log('click btn...');
+        console.log(this);
+        this.innerText = 'HI';
+      });
+
+      // arrow func은 this값이 없다. (this가 바인딩되지 않는다.)
+      // btn.addEventListener('click', () => {
+      //   console.log('click btn...');
+      //   console.log(this);
+      //   this.innerText = 'HI';
+      // });
+
+      let a = 10;
+      let b = 100;
+      function test() {
+        let a = 20;
+        {
+          let c = 500;
+          console.log(a, b, c);
+        }
+      }
+      test();
+    </script>
+  </body>
+</html>

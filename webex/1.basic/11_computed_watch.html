@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      수량 : <input type="number" v-model="count" />
+      <span v-show="isError">수량이 유효하지 않습니다.</span> <br />
+      금액 : <input type="number" v-model="price" /> <br />
+      총 금액 : {{totalPrice}}
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            count: 1,
+            price: 10000,
+            isError: false,
+          };
+        },
+        computed: {
+          totalPrice() {
+            console.log('computed totalPrice...');
+            return this.count * this.price;
+          },
+        },
+        watch: {
+          count(newCount, oldCount) {
+            console.log(`watch : ${oldCount} -> ${newCount}`);
+            if (newCount < 0) {
+              this.isError = true;
+            } else {
+              this.isError = false;
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

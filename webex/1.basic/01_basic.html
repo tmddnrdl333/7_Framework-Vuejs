@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>First Vue</h1>
+    <!-- View -->
+    <div id="app" style="background-color: aquamarine">
+      <h2>Simple Vue</h2>
+      <h3>{{message}}</h3>
+    </div>
+    <h1>Footer</h1>
+
+    <template id="helloTemplate">
+      <h2 style="color: red">{{message}}</h2>
+    </template>
+
+    <script>
+      // Model (Data)
+      let data = {
+        message: 'Hello SSAFY',
+      };
+
+      // 1. el 옵션 : el's outer html이 템플릿으로 처리됨.
+      // 2. el 옵션 + template 옵션 : el 요소가 템플릿으로 대체됨.
+      // 3. el 옵션 + render 옵션 : el의 요소가 렌더함수의 리턴값(DOM요소)로 대체됨
+      new Vue({
+        el: '#app', // View
+        template: '#helloTemplate',
+        data: data, // Model
+        // render(h) {
+        //   return h('h1', 'SSAFY'); // 리턴되는 요소가 템플릿을 대신함.
+        // },
+      }); // ViewModel
+    </script>
+  </body>
+</html>

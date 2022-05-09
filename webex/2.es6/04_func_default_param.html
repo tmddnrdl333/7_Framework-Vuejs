@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function printInfo(name = '김싸피', age = 0) {
+        console.log(name, age);
+      }
+      //   printInfo();
+      //   printInfo('김재환');
+      //   printInfo('김재환', 27);
+
+      function printInfo2({ name = '김싸피', age = 0 }) {
+        console.log(name, age);
+      }
+      //   printInfo2();
+      printInfo2({ name: '김재환' });
+      printInfo2({ age: 27 });
+      printInfo2({ name: '김재환', age: 27 });
+    </script>
+  </body>
+</html>

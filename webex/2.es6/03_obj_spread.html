@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let person1 = {
+        name: '김재환',
+        age: 27,
+        gender: 'm',
+      };
+      let person3 = {
+        name: '김재환',
+        age: 26,
+        job: '가수',
+      };
+
+      // let person2 = { name: person1.name, age: person1.age, gender: person1.gender };
+      let person2 = { ...person1 };
+      console.log(person2);
+      let person4 = { ...person1, ...person3 };
+      console.log(person4);
+
+      function increaseAge(ps) {
+        ps.age++;
+      }
+
+      console.log(person1.age);
+      increaseAge({ ...person1 });
+      console.log(person1.age);
+    </script>
+  </body>
+</html>

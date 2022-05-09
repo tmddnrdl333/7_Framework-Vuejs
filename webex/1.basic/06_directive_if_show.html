@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      가격 : {{price}}<br />
+      수량 : <input type="number" v-model.number="amount" /> <br />
+      총 가격(*) : {{amount*price}}<br />
+      총 가격(+) : {{amount+price}}<br />
+
+      <span v-if="amount<0">수량은 음수가 될 수 없어요!!</span>
+      <span v-show="amount<0">수량은 음수가 될 수 없어요!!</span>
+      <br />
+
+      <span v-if="price*amount>=500000">VIP</span>
+      <span v-else-if="price*amount>=300000">GOLD</span>
+      <span v-else>SILVER</span>
+
+      <template v-if="amount>1">
+        <h2>고객님 사랑해요~</h2>
+        <h3>다음에 또 주문해주세요~</h3>
+      </template>
+    </div>
+
+    <script>
+      let data = {
+        price: 10000,
+        amount: 1,
+      };
+      new Vue({
+        el: '#app',
+        data: data,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let name = '김재환';
+      let age = 27;
+
+      // ES6 이전
+      let person = {
+        name: name,
+        age: age,
+        getName: function () {
+          return this.name;
+        },
+      };
+
+      //ES6
+      let person = {
+        name, // shorthnad property
+        age,
+        getname: function () {
+          return this.name;
+        },
+      };
+
+      console.log(person);
+      console.log(person.getName());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{message}}</h1>
+      <input type="text" v-model.lazy="name" /> <br />
+      Hello {{name}}
+    </div>
+
+    <script>
+      let data = {
+        message: 'Lucky 7!!',
+        name: '김삽휘',
+      };
+      new Vue({
+        el: '#app',
+        data: data,
+        methods: {
+          greeting() {
+            return 'hello' + this.name;
+          },
+        },
+        beforeCreate() {
+          console.log(`beforeCreate ${this.name}, ${this.greeting}, ${this.$el}`);
+        },
+        created() {
+          console.log(`created ${this.name}, ${this.greeting}, ${this.$el}`);
+        },
+        beforeMount() {
+          console.log(`beforeMount ${this.name}, ${this.greeting}, ${this.$el.innerHTML}`);
+        },
+        mounted() {
+          console.log(`mounted ${this.name}, ${this.greeting}, ${this.$el.innerHTML}`);
+        },
+        beforeUpdate() {
+          console.log(`beforeUpdate ${this.name}, ${this.greeting}, ${this.$el.innerHTML}`);
+        },
+        updated() {
+          console.log(`updated ${this.name}, ${this.greeting}, ${this.$el.innerHTML}`);
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="message" />
+      <input type="text" v-model.lazy="message" />
+      <br />
+      <input type="checkbox" value="apple" v-model="fruits" />사과
+      <input type="checkbox" value="orange" v-model="fruits" />오렌지
+      <input type="checkbox" value="grape" v-model="fruits" />포도
+    </div>
+    <script>
+      let data = {
+        message: 'Hello',
+        fruits: ['orange'],
+      };
+      new Vue({
+        el: '#app',
+        data: data,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <img v-bind:src="imgSrc" v-bind:[attr]="title" />
+      <img :src="imgSrc" :[attr]="title" />
+    </div>
+    <script>
+      let data = {
+        imgSrc: 'oops.jpg',
+        attr: 'title',
+        title: 'oops 이미지지롱',
+      };
+      new Vue({
+        el: '#app',
+        data: data,
+      });
+    </script>
+  </body>
+</html>

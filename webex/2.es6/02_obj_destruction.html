@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let person = {
+        name: '김재환',
+        age: 27,
+        gender: 'm',
+      };
+
+      // 구조분해 할당
+      let { name, age } = person;
+      console.log(name, age);
+      let { name: n, age: a } = person;
+      console.log(n, a);
+
+      function printPerson(ps) {
+        console.log(ps.name, ps.age);
+      }
+      function printPerson2({ name, age }) {
+        console.log(name, age);
+      }
+
+      printPerson(person);
+      printPerson2(person);
+
+      let arr = [10, 20, 30];
+      let [a1, b1] = arr;
+      console.log(a1, b1);
+      let [i, , k] = arr;
+      console.log(i, k);
+
+      let c = 10;
+      let d = 20;
+      console.log(c, d);
+      [d, c] = [c, d];
+      console.log(c, d);
+
+      let { id, ...rest } = { id: 'ssafy', name: '김싸피', class: 9 };
+      console.log(id);
+      console.log(rest);
+    </script>
+  </body>
+</html>

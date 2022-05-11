@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script></script>
+  </head>
+  <body>
+    <div id="app">
+      <header-nav></header-nav>
+      <dept-regist></dept-regist>
+    </div>
+
+    <template id="HeaderNavTemplate">
+      <header>
+        <a href="./index.html"> <img src="./img/ssafy_logo.png" /></a>
+        <h1 class="title">부서 관리</h1>
+      </header>
+    </template>
+
+    <template id="DeptRegistTemplate">
+      <div>
+        <h1 class="underline">부서 등록</h1>
+        <table>
+          <colgroup>
+            <col style="width: 30%" />
+            <col style="width: 70%" />
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>Dept No.</td>
+              <td>
+                <input
+                  type="text"
+                  required="required"
+                  name="deptNo"
+                  id="deptNo"
+                  v-model="dept.deptNo"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Dept Name</td>
+              <td>
+                <input
+                  type="text"
+                  required="required"
+                  name="dName"
+                  id="dName"
+                  v-model="dept.dName"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Dept Location</td>
+              <td>
+                <input type="text" required="required" name="loc" id="loc" v-model="dept.loc" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <a href="./list.html"
+                  ><button style="width: 40%" @click="registDept()">등록</button></a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
+
+    <script>
+      const HeaderNav = {
+        template: '#HeaderNavTemplate',
+      };
+
+      const DeptRegist = {
+        template: '#DeptRegistTemplate',
+        data() {
+          return {
+            dept: { deptNo: '', dName: '', loc: '' }, // 백엔드 통신 후의 데이터로 채워짐!
+          };
+        },
+        methods: {
+          registDept() {
+            // axios 이용해서 백엔드 통신후 자신의 depts 데이터 채우는 작업!
+            axios
+              .post('http://127.0.0.1:8080/myapp_rest/api/depts', this.dept)
+              .then((response) => (this.depts = response.data))
+              .catch((error) => alert(error));
+          },
+        },
+      };
+
+      new Vue({
+        el: '#app',
+        components: {
+          HeaderNav,
+          DeptRegist,
+        },
+      });
+    </script>
+  </body>
+</html>

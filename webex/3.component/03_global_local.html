@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>부모 컴포넌트1</h1>
+      <today-component></today-component>
+      <test-component></test-component>
+    </div>
+    <div id="app2">
+      <h1>부모 컴포넌트2</h1>
+      <today-component></today-component>
+      <test-component></test-component>
+    </div>
+    <template id="TodayTemplate">
+      <div style="color: green">
+        오늘은 {{today.getFullYear()}}년 {{today.getMonth()+1}}월 {{today.getDate()}}일 입니다.
+      </div>
+    </template>
+    <script>
+      Vue.component('TodayComponent', {
+        template: '#TodayTemplate',
+        data() {
+          return {
+            today: new Date(),
+          };
+        },
+      });
+
+      new Vue({
+        el: '#app',
+        components: {
+          TestComponent: {
+            template: '<div>Test</div>',
+          },
+        },
+      });
+
+      new Vue({
+        el: '#app2',
+      });
+    </script>
+  </body>
+</html>

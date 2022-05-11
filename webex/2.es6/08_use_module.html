@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script type="module" src="./module/util.js"></script> -->
+    <script type="module">
+      import { cube, PI } from './module/util.js';
+      import ca from './module/calc.js'; // calc.js가 디폴트로 export하는 대상을 import
+      import { SIZE } from './module/calc.js'; // calc.js가 디폴트로 export하는 대상을 import
+
+      console.log(cube(10));
+      console.log(PI);
+      console.log(ca.add(2, 3));
+      console.log(ca.multi(2, 3));
+      console.log(SIZE);
+    </script>
+  </body>
+</html>

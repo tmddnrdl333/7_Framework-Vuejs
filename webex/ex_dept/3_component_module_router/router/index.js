@@ -9,6 +9,10 @@ const routes = [
     component: MainContentView,
   },
   {
+    path: 'index.html',
+    redirect: '/',
+  },
+  {
     path: '/dept/list',
     component: DeptListView,
   },

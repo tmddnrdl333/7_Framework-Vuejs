@@ -1,0 +1,143 @@
+<template>
+  <div id="app">
+    <header-nav></header-nav>
+    <router-view />
+  </div>
+</template>
+
+<script>
+import HeaderNav from "@/components/HeaderNav.vue";
+export default {
+  name: "App",
+  components: { HeaderNav },
+};
+</script>
+
+<style>
+a {
+  text-decoration: none;
+  color: #787878;
+}
+input,
+textarea,
+.view {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #787878;
+  font-size: medium;
+}
+label {
+  display: inline-block;
+  width: 80px;
+}
+button,
+.btn {
+  width: 8%;
+  background-color: #d0d3d0;
+  color: rgb(80, 82, 79);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid #787878;
+  border-radius: 4px;
+  font-size: large;
+  cursor: pointer;
+}
+.regist {
+  padding: 10px;
+}
+.regist_form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+}
+header img {
+  vertical-align: middle;
+}
+header .title {
+  display: inline-block;
+  font-size: 30pt;
+  font-weight: bold;
+}
+.underline {
+  display: inline-block;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, cyan 30%);
+}
+
+table {
+  font: Verdana, Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #f0f8ff;
+  border-top: 5px double #87cefa;
+  border-bottom: 5px double #87cefa;
+  margin: 0 auto;
+}
+th {
+  font: bold 1.1em/120% Verdana, Arial, Helvetica, sans-serif;
+  padding: 5px 10px;
+  font-variant: small-caps;
+  color: #047;
+  font-weight: bold;
+  text-align: left;
+  letter-spacing: -1px;
+}
+thead th {
+  border: 1px solid #87cefa;
+  white-space: nowrap;
+  background: #f0f8ff;
+}
+tbody td,
+tbody th {
+  padding: 5px 10px;
+  background: #fff;
+  color: #000;
+}
+tbody th {
+  color: #047;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 1em;
+}
+tbody tr.odd {
+  border: 1px solid #87cefa;
+}
+tbody tr.odd td,
+tbody tr.odd th {
+  background: #f0f8ff;
+}
+tfoot td,
+tfoot th {
+  border: none;
+  padding-top: 10px;
+}
+caption {
+  font-family: "Georgia", serif;
+  letter-spacing: 5px;
+  font-style: italic;
+  text-align: left;
+  text-indent: 2em;
+  text-transform: uppercase;
+  font-size: 150%;
+  padding: 10px 0;
+  color: #047;
+}
+table a:link {
+  color: #0000ff;
+}
+table a:visited {
+  color: #0f0;
+}
+table a:hover {
+  color: #f00;
+  text-decoration: none;
+}
+</style>

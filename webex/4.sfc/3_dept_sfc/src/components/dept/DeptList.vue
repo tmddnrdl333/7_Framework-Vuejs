@@ -1,34 +1,34 @@
 <template>
   <div>
     <h1 class="underline">부서 목록</h1>
-    <table>
+    <b-table-simple>
       <colgroup>
         <col style="width: 10%" />
         <col style="width: 20%" />
         <col style="width: 40%" />
         <col style="width: 30%" />
       </colgroup>
-      <thead>
-        <tr>
-          <th>번호</th>
-          <th>부서번호</th>
-          <th>부서명</th>
-          <th>지역</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(dept, index) in depts" :key="dept.deptNo">
-          <td>{{ index + 1 }}</td>
-          <td>{{ dept.deptNo }}</td>
-          <td>
+      <b-thead>
+        <b-tr>
+          <b-th>번호</b-th>
+          <b-th>부서번호</b-th>
+          <b-th>부서명</b-th>
+          <b-th>지역</b-th>
+        </b-tr>
+      </b-thead>
+      <b-tbody>
+        <b-tr v-for="(dept, index) in depts" :key="dept.deptNo">
+          <b-td>{{ index + 1 }}</b-td>
+          <b-td>{{ dept.deptNo }}</b-td>
+          <b-td>
             <router-link :to="'/dept/detail/' + dept.deptNo">{{
               dept.dName
             }}</router-link>
-          </td>
-          <td>{{ dept.loc }}</td>
-        </tr>
-      </tbody>
-    </table>
+          </b-td>
+          <b-td>{{ dept.loc }}</b-td>
+        </b-tr>
+      </b-tbody>
+    </b-table-simple>
   </div>
 </template>
 
